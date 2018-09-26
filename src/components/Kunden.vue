@@ -21,9 +21,9 @@
           hide-details
         >
       </v-text-field>
-    
+
       <v-spacer></v-spacer>
-    
+
       <v-btn class="primary">Neuer Kunde</v-btn>
     </v-card-title>
     <v-data-table
@@ -33,18 +33,18 @@
       hide-actions
       item-key="name"
     >
-     
+
       <template slot="items" slot-scope="props" >
       <tr @click="props.expanded = !props.expanded">
         <td><div class="datatable-cell-wrapper">{{ props.item.name }}</div></td>
         <td>{{ props.item.adresse }}</td>
         <td>{{ props.item.postleitzahl }}</td>
         <td>{{ props.item.stadt }}</td>
-        <td> 
-        
-        
-        <v-tooltip bottom> 
-        <v-icon class="mr-2" small slot="activator">edit</v-icon>
+        <td>
+
+
+        <v-tooltip bottom>
+        <v-icon @click="rowClick" class="mr-2" small slot="activator">edit</v-icon>
         <span>Bearbeiten</span>
         </v-tooltip>
 
@@ -56,8 +56,8 @@
         </td>
       </tr>
       </template>
-    
-      
+
+
       <template slot="expand" slot-scope="props">
       <v-layout align-center justify-space-around row fill-height>
       <v-flex xs3 sm6 v-for="tier in props.item.tiere">
@@ -65,7 +65,7 @@
         <v-list>
         <v-list-tile><b>Name: {{tier.name}}</b> </v-list-tile>
         <v-divider></v-divider>
-        
+
           <v-list-tile>Tierart: {{tier.tierart}}</v-list-tile>
           <v-list-tile>Rasse: {{tier.rasse}} </v-list-tile>
         </v-list>
@@ -73,9 +73,9 @@
         </v-card>
       </v-flex>
       </v-layout>
-      
+
         <div class="datatable-container"></div>
-      
+
       </template>
       <v-alert slot="no-results" :value="true" color="error" icon="warning">
        Kein Kunde gefunden mit: "{{ search }}".
@@ -92,7 +92,7 @@ import {mapState, mapGetters,mapActions} from 'vuex'
     computed:{
       ...mapState({
         kunden: state => state.kunde.kunden
-      })  
+      })
     },
     methods: {
       rowClick: function (event){
@@ -113,9 +113,9 @@ import {mapState, mapGetters,mapActions} from 'vuex'
           { text: 'Postleitzahl', value: 'postleitzahl' },
           { text: 'Stadt', value: 'stadt' },
           { text: 'Actions', sortable: false}
-          
+
         ]
-        
+
       }
     }
   }
