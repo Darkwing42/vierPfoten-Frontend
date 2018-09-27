@@ -102,6 +102,32 @@ import {mapState, mapGetters,mapActions} from 'vuex'
     data () {
       return {
         search: '',
+        kunde: {
+          kundennummer: 100,
+          anrede: "",
+          titel: "",
+          nachname: "",
+          vorname: "",
+          email: "",
+          adresse: {
+            strasse_hnr: "",
+            postleitzahl: null,
+            stadt: ""
+          },
+          besonderheiten: "",
+          tiere: [
+            {
+              name: "",
+              tierart: "",
+              rasse: "",
+              medHistory: "",
+              besonderheiten: ""
+            }
+          ],
+          rabat: null
+
+
+        },
         headers: [
           {
             text: 'Name',
